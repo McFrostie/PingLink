@@ -1,0 +1,7 @@
+{
+  "name": "PingLink",
+  "description": "Location-based social platform for table tennis players.",
+  "requestFramePermissions": [
+    "geolocation"
+  ]
+}

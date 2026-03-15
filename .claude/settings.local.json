@@ -1,0 +1,42 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(ls F:/pinglink/src && ls F:/pinglink/src/screens 2>/dev/null || ls F:/pinglink/src/pages 2>/dev/null || find F:/pinglink/src -name \"*.tsx\" -o -name \"*.ts\" -o -name \"*.jsx\" -o -name \"*.js\" | head -50)",
+      "Bash(for f:*)",
+      "Bash(do echo:*)",
+      "Read(//f/pinglink/**)",
+      "Bash(done)",
+      "Bash(mkdir -p F:/pinglink/docs/superpowers/plans && mkdir -p F:/pinglink/supabase/migrations)",
+      "mcp__supabase__list_projects",
+      "mcp__supabase__list_migrations",
+      "mcp__supabase__list_tables",
+      "mcp__supabase__apply_migration",
+      "mcp__supabase__execute_sql",
+      "Bash(cd F:/pinglink && npm install @supabase/supabase-js zustand)",
+      "mcp__supabase__get_publishable_keys",
+      "Bash(cd F:/pinglink && npm run build 2>&1 | tail -40)",
+      "Bash(cd F:/pinglink && npm install @capacitor/app 2>&1 | tail -5)",
+      "Bash(cd F:/pinglink && npm run build 2>&1 | tail -30)",
+      "Bash(cd F:/pinglink && npx tsc --noEmit 2>&1)",
+      "Bash(cd F:/pinglink && npm run build 2>&1 | tail -15)",
+      "Bash(cd F:/pinglink && npm install @capacitor/geolocation --save 2>&1 | tail -5)",
+      "Bash(cd F:/pinglink && npm run lint 2>&1)",
+      "Bash(cd F:/pinglink && npx cap sync android 2>&1 | tail -10)",
+      "Bash(ls F:/pinglink/.env* 2>/dev/null && cat F:/pinglink/.env 2>/dev/null || echo \"NO_ENV\")",
+      "Bash(cd F:/pinglink && npm install @capacitor/google-maps --save 2>&1 | tail -4)",
+      "Bash(ls F:/pinglink/node_modules/react/*.d.ts 2>/dev/null | head -10)",
+      "Bash(find F:/pinglink/node_modules/react -name \"*.d.ts\" 2>/dev/null | head -5)",
+      "Bash(find F:/pinglink/node_modules -maxdepth 3 -name \"index.d.ts\" -path \"*/react/*\" 2>/dev/null | head -10)",
+      "Bash(find \"F:/pinglink/node_modules/react-dom\" -name \"*.d.ts\" 2>/dev/null | head -5)",
+      "Bash(cd F:/pinglink && npm install --save-dev @types/react @types/react-dom 2>&1 | tail -5)",
+      "Bash(cd F:/pinglink && npm run build 2>&1 | tail -8)",
+      "Bash(cd F:/pinglink && npx cap sync android 2>&1 | tail -8)",
+      "Bash(cd F:/pinglink && npm uninstall @capacitor/google-maps && npm install @react-google-maps/api --save 2>&1 | tail -5)",
+      "Bash(cd F:/pinglink && npm run build 2>&1 | tail -6)",
+      "Bash(cd F:/pinglink && npx cap sync android 2>&1 | tail -6)",
+      "Bash(git init:*)",
+      "Bash(git config:*)",
+      "Bash(git add:*)"
+    ]
+  }
+}

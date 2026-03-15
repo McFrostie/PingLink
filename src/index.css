@@ -1,0 +1,221 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --font-display: "DM Sans", system-ui, sans-serif;
+  --font-sans: "DM Sans", system-ui, sans-serif;
+  --color-ping: #FF3366;
+  --color-ping-dark: #E61E4D;
+  --radius-sm: 10px;
+  --radius-md: 16px;
+  --radius-lg: 24px;
+}
+
+html, body, #root {
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  overscroll-behavior-y: none;
+}
+
+body {
+  background-color: #f8f9fa;
+  color: #0f1419;
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+}
+
+@layer components {
+  /* Premium Input Styles */
+  .ping-input {
+    width: 100%;
+    background-color: #ffffff;
+    border: 1.5px solid #e2e8f0;
+    border-radius: 1rem;
+    color: #0f1419;
+    padding: 1.125rem;
+    font-family: var(--font-sans);
+    outline: none;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    font-size: 1rem;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.02);
+  }
+
+  .ping-input:focus {
+    border-color: #0f1419;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+    transform: translateY(-1px);
+  }
+
+  .ping-input::placeholder {
+    color: #94a3b8;
+  }
+
+  /* Premium Button Styles */
+  .ping-btn {
+    width: 100%;
+    background-color: #0f1419;
+    color: #ffffff;
+    font-family: var(--font-sans);
+    font-size: 1.125rem;
+    font-weight: 600;
+    padding: 1.125rem;
+    border-radius: 1rem;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .ping-btn::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to right, transparent, rgba(255,255,255,0.1), transparent);
+    transform: translateX(-100%);
+    transition: transform 0.5s ease;
+  }
+
+  .ping-btn:hover::after {
+    transform: translateX(100%);
+  }
+
+  .ping-btn:active {
+    transform: scale(0.97);
+  }
+
+  .ping-btn:disabled {
+    background-color: #e2e8f0;
+    color: #94a3b8;
+    cursor: not-allowed;
+    transform: none;
+  }
+
+  .ping-btn-outline {
+    width: 100%;
+    background-color: transparent;
+    color: #0f1419;
+    font-family: var(--font-sans);
+    font-size: 1.125rem;
+    font-weight: 600;
+    padding: 1.125rem;
+    border-radius: 1rem;
+    border: 2px solid #e2e8f0;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    cursor: pointer;
+  }
+
+  .ping-btn-outline:hover {
+    border-color: #0f1419;
+    background-color: #f8f9fa;
+  }
+
+  .ping-btn-outline:active {
+    transform: scale(0.97);
+  }
+
+  /* Shared surface and text utilities for consistent UI language */
+  .ui-card {
+    background-color: #ffffff;
+    border-radius: var(--radius-md);
+    border: 1px solid #eceef1;
+    box-shadow: 0 4px 14px rgba(15, 20, 25, 0.05);
+  }
+
+  .ui-text-secondary {
+    color: #4b5563;
+  }
+
+  .ui-section-link {
+    height: 2.25rem;
+    padding: 0 0.125rem;
+    border: none;
+    background: transparent;
+    color: #4b5563;
+    font-size: 0.875rem;
+    font-weight: 600;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.25rem;
+    transition: color 0.2s ease, transform 0.2s ease;
+  }
+
+  .ui-section-link:hover {
+    color: var(--color-ping-dark);
+  }
+
+  .ui-section-link:active {
+    transform: translateY(1px);
+  }
+
+  .ui-section-link:focus-visible {
+    outline: 2px solid rgba(255, 51, 102, 0.35);
+    outline-offset: 2px;
+    border-radius: var(--radius-sm);
+  }
+}
+
+/* Custom Scrollbar for hiding */
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+/* Safe area utilities */
+.safe-pt {
+  padding-top: env(safe-area-inset-top, 0px);
+}
+.safe-pb {
+  padding-bottom: env(safe-area-inset-bottom, 0px);
+}
+
+/* ─── Splash Screen Animations ──────────────────────────────────── */
+@keyframes splash-fade-in {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+@keyframes splash-rise {
+  from { opacity: 0; transform: translateY(16px) scale(0.92); }
+  to   { opacity: 1; transform: translateY(0)    scale(1); }
+}
+
+@keyframes splash-tagline {
+  from { opacity: 0; transform: translateY(8px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+.splash-root {
+  animation: splash-fade-in 0.4s ease forwards;
+}
+
+.splash-glow {
+  animation: splash-fade-in 0.8s ease 0.2s both;
+}
+
+.splash-logo {
+  animation: splash-rise 0.6s cubic-bezier(0.34, 1.56, 0.64, 1) 0.15s both;
+}
+
+.splash-tagline {
+  animation: splash-tagline 0.5s ease 0.55s both;
+}
