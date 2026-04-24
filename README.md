@@ -31,10 +31,5 @@ npx cap copy
 npx cap open android
 ```
 
-### iOS
-```bash
-npm run build
-npx cap add ios
-npx cap copy
 npx cap open ios
 ```
