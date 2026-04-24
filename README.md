@@ -1,14 +1,40 @@
-<div align="center">
-<img width="1200" height="475" alt="GHBanner" src="https://github.com/user-attachments/assets/0aa67016-6eaf-458a-adb2-6e31a0763ed6" />
-</div>
+# PingLink
 
-## Run Locally
+A sports venue matching platform built with React, TypeScript, and Capacitor.
 
-**Prerequisites:**  Node.js
+## Prerequisites
 
+- Node.js (v16 or higher)
+- npm or yarn
+
+## Running Locally
 
 1. Install dependencies:
-   `npm install`
-2. Set the `GEMINI_API_KEY` in [.env.local](.env.local) to your Gemini API key
-3. Run the app:
-   `npm run dev`
+   ```bash
+   npm install
+   ```
+
+2. Start the development server:
+   ```bash
+   npm run dev
+   ```
+
+3. Open your browser and navigate to `http://localhost:5173`
+
+## Running on Mobile
+
+### Android
+```bash
+npm run build
+npx cap add android
+npx cap copy
+npx cap open android
+```
+
+### iOS
+```bash
+npm run build
+npx cap add ios
+npx cap copy
+npx cap open ios
+```
